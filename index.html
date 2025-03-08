@@ -6,21 +6,26 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Vinyl&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/style.css">
     <title>Helia's weatherApp</title>
   </head>
   <body>
     <div class="weather-app">
     <header>
-      <form>
+      <form class="search-form">
         <input
           type="search"
           placeholder="Enter a city..."
           required
+          class="search-form-input"
         />
         <input
           type="submit"
           value="search"
+          class="search-form-button"
         />
       </form>
     </header>
