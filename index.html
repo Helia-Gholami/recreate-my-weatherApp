@@ -15,7 +15,7 @@
   <body>
     <div class="weather-app">
     <header>
-      <form class="search-form">
+      <form class="search-form" id="search-form">
         <input
           type="search"
           placeholder="Enter a city..."
@@ -30,21 +30,24 @@
       </form>
     </header>
     <main>
+<div class="weather-app-data">
         <div>
-        <h1>paris</h1>
-        <p>
+        <h1 class="weather-app-city">paris</h1>
+        <p class="weather-app-details">
             friday 13:17, clear sky
         </br>
-        Humidity:52%, wind: 3.6km/h
+        Humidity:<strong>52%</strong>, wind: <strong>3.6km/h</strong>
         </p>
         </div>
-        <div>⛅12℃</div>
+        <div class="weather-app-container"><div class="weather-app-icon">⛅</div><div class="weather-app-temperature">12</div><div class="weather-app-unit">℃</div></div>
+        </div>
     </main>
 
     <footer>
         This project was coded by<a  href="#"> Helia Gholami</a> and is open-sourced on <a href="#">GitHub and hosted</a> on <a href="#">Netlify</a>
     </footer> 
-    </div>      
+    </div>   
+    <script src="src/index.js"></script>   
   </body>
 
 </html>
