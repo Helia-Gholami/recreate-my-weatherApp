@@ -36,12 +36,17 @@
         <div>
         <h1 class="weather-app-city" id="city">paris</h1>
         <p class="weather-app-details">
-            friday 13:17, clear sky
+            friday 13:17, <span id="description">clear sky</span>
         </br>
-        Humidity:<strong>52%</strong>, wind: <strong>3.6km/h</strong>
+        Humidity:<strong id="humidity"></strong>
+        , wind: <strong id="wind-speed"></strong>
         </p>
         </div>
-        <div class="weather-app-container"><div class="weather-app-icon">⛅</div><div class="weather-app-temperature">12</div><div class="weather-app-unit">℃</div></div>
+        <div class="weather-app-container">
+         <div class="weather-app-icon">⛅</div>
+         <div class="weather-app-temperature" id="temperature">12</div>
+         <div class="weather-app-unit">℃</div>
+      </div>
         </div>
     </main>
 
