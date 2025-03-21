@@ -59,6 +59,11 @@ function searchHandle(event) {
   searchCity(searchInput.value);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = [`Sun`, `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`];
+  return days[date.getDay()];
+}
 function getForecast(city) {
   apiKey = `2a2d11ob41f23821caed90d45et0cd09`;
   apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
@@ -66,18 +71,22 @@ function getForecast(city) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
-  let days = [`Sat`, `Sun`, `Mon`, `Tue`, `Wed`];
   let forecastHtml = ``;
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 6) {
+      forecastHtml =
+        forecastHtml +
+        `
     <div class="weather-app-day">
-    <div class="weather-app-date">${day}</div>
-    <div class="weather-app-icon">🌧</div>
-    <div class="weather-app-teperatures"><div class="weather-app-temp"><strong>12°</strong></div><div class="weather-app-temp">9°</div></div>
+    <div class="weather-app-date">${formatDay(day.time)}</div>
+    <img src="${day.condition.icon_url}" class="weather-app-icon"/>
+    <div class="weather-app-teperatures"><div class="weather-app-temp"><strong>${Math.round(
+      day.temperature.maximum
+    )}°</strong></div><div class="weather-app-temp">${Math.round(
+          day.temperature.minimum
+        )}°</div></div>
     </div>`;
+    }
   });
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
@@ -86,4 +95,4 @@ function displayForecast(response) {
 let searchElement = document.querySelector("#search-form");
 searchElement.addEventListener("submit", searchHandle);
 
-displayForecast();
+searchCity(`Paris`);

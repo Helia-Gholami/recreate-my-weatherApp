@@ -98,7 +98,7 @@ main {
 .weather-app-icon {
   text-align: center;
 
-  font-size: 38px;
+  width: 100%;
 }
 
 .weather-app-teperatures {
